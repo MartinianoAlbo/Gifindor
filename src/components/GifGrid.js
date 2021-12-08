@@ -1,33 +1,25 @@
 import React from 'react'
-import { useFetchGifs } from '../hooks/useFetchGifs';
+import { useFetchGifs } from '../hooks/useFetchGifs'
 import { GifGridItem } from './GifGridItem'
-import { getGif } from './helpers/getGifs';
+import Swal from 'sweetalert2'
 
 function GifGrid({ categorias }) {
-  
-  // const [images, setImages] = useState([])
-
-  const {loading} = useFetchGifs();
-
-
-  // useEffect(() => {
-  //   getGif(categorias)
-  //     .then(setImages)
-  // }, [categorias])
-
-
+  const { data: images, loading } = useFetchGifs(categorias)
 
   return (
     <>
-      <h3>{categorias}</h3>
+    
+      <h1>
+        <strong>{categorias}</strong>
+      </h1>
 
-      {loading ? 'cargando.. ' : 'Data cargada..'}
-      {/* <div className='card-grid'>
-      
+      {loading && <div className="spinner animate__fadeInDownBig"></div>}
+  
+      <div className="card-grid">
         {images.map((img) => (
           <GifGridItem key={img.id} {...img} />
         ))}
-      </div> */}
+      </div>
     </>
   )
 }

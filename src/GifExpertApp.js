@@ -3,8 +3,6 @@ import AddCategory from "./components/AddCategory";
 import GifGrid from "./components/GifGrid";
 
 
-
-
 const GifExpertApp = () => {
 
    const [categorias, setCategorias] = useState([])
@@ -14,7 +12,7 @@ const GifExpertApp = () => {
    return (
       <>
       <div className='titulo'>
-         <h1 >Gif Expert App</h1>
+         <h1 className='animate__animated animate__jackInTheBox'>GifinDor</h1>
       </div>
 
       <AddCategory setCategorias={setCategorias}/>
@@ -25,11 +23,11 @@ const GifExpertApp = () => {
          
          {
             categorias.map(categoria =>
-                <GifGrid
+               <GifGrid
                   categorias = {categorias}
                   key = {categoria} 
-                />
-                )
+               />
+               )
          }
         
       </ol>
